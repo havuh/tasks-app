@@ -1,0 +1,112 @@
+%cover {
+  width: 100%;
+  position: relative;
+}
+
+%center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%center-vertical {
+  display: flex;
+  align-items: center;
+}
+
+%center-horizontal {
+  display: flex;
+  justify-content: center;
+}
+
+%inline-center {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%abs-center {
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+@mixin position($position, $z-index: 1) {
+  position: $position;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: $z-index;
+}
+
+@mixin position-abs-center() {
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+@mixin placeholder {
+  &::input-placeholder {
+    @content;
+  }
+
+  &:placeholder {
+    @content;
+  }
+
+  &::placeholder {
+    @content;
+  }
+
+  &:input-placeholder {
+    @content;
+  }
+}
+
+@mixin field-autofill {
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    @content;
+  }
+}
+
+@mixin field-autofill-text {
+  &:-webkit-autofill::first-line {
+    @content;
+  }
+}
+
+@mixin size($size, $height: 0) {
+  font-size: rem($size);
+
+  @if $height>0 {
+    line-height: #{math.div($height, $size)}em;
+  }
+}
+
+@mixin hover {
+  &:hover {
+    @include media('>tablet-lg') {
+      @content;
+    }
+  }
+}
+
+@mixin set-css-vars($vars, $transform: false) {
+  @at-root {
+    :root {
+      @each $name, $value in $vars {
+        @if $transform == false {
+          #{$name}: #{$value};
+        } @else {
+          --#{$name}: #{$value};
+        }
+      }
+    }
+  }
+}

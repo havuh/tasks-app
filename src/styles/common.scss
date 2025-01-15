@@ -1,0 +1,14 @@
+/**
+ * Swiper styles.
+ */
+// @import '/node_modules/swiper/swiper.scss';
+
+/**
+ * Common styles (normalize, defaults, helpers, scrollbars and css defaults).
+ */
+@import 'core/common';
+
+/**
+ * Common custom styles.
+ */
+@import 'custom/common';

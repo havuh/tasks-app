@@ -1,0 +1,32 @@
+/* Medium Devices, Desktops Only */
+/* Targtes on Chrome, Edge, and Safari */
+@media only screen and (min-width: 600px) {
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  ::-webkit-scrollbar:hover {
+    width: 6px;
+    height: 6px;
+    background-color: rgba(0, 0, 0, 0.06);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: var(--color-scrollbar);
+    transition:
+      background-color 0.2s linear,
+      width 0.2s;
+    cursor: pointer;
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--white-color);
+  }
+}

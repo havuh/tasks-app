@@ -1,0 +1,40 @@
+echo '
+🚀 Running pre-commit hooks
+
+✨ Checking types and linting...
+'
+
+# Check types and linting
+pnpm lint-types || (
+  echo '
+  ❌ Linting failed. Please fix the errors and try again.
+  '
+  exit 1
+)
+
+pnpm lint || (
+  echo '
+  ❌ Linting failed. Please fix the errors and try again.
+  '
+  exit 1
+)
+
+echo '✅ Linting passed!'
+echo ''
+echo '💉 Running tests...'
+
+# Run tests
+pnpm test || (
+  echo '
+  ❌ Tests failed. Please fix the errors and try again.
+  '
+  exit 1
+)
+
+echo '✅ Tests passed!'
+echo '
+🚀 Pre-commit hooks completed
+'
+
+exit 0
+

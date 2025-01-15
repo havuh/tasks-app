@@ -1,0 +1,33 @@
+/**
+ * Set CSS variables
+ */
+@include set-css-vars($sizes, true);
+@include set-css-vars($default-font-weight);
+@include set-css-vars($font-families);
+
+/**
+ * Set CSS variables for section padding
+ */
+@at-root {
+  :root {
+    @include media('<phone-lg') {
+      --section-x-padding: #{rem(16)};
+    }
+
+    @include media('>=phone-lg', '<tablet-lg') {
+      --section-x-padding: #{rem(24)};
+    }
+
+    @include media('>=tablet-lg', '<tablet-xl') {
+      --section-x-padding: #{rem(32)};
+    }
+
+    @include media('>=tablet-xl', '<desktop-md') {
+      --section-x-padding: #{rem(48)};
+    }
+
+    @include media('>=desktop-md') {
+      --section-x-padding: #{rem(80)};
+    }
+  }
+}

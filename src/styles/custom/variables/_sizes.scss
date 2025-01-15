@@ -1,0 +1,12 @@
+@use 'sass:map';
+
+$sizes: map.merge(
+  $default-sizes,
+  (
+    'base-font-size-unit-none': 10,
+    'base-font-size': 10px,
+    'base-mobile-screen-size': 320,
+    'base-tablet-screen-size': 768,
+    'base-desktop-screen-size': 1440,
+  )
+);
