@@ -1,7 +1,7 @@
 import s from './Loader.module.scss'
 
 const Loader: React.FC = () => {
-  return <span className={s.loader}></span>
+  return <span data-testid="loader" className={s.loader}></span>;
 }
 
 export default Loader
